@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Educar é Transformar</title>
+    <link rel="icon" href="favicon.png.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+  --primary: #5f259f;   /* Roxo escuro */
+  --secondary: #f7d900; /* Amarelo vibrante */
+}
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #57268b82;
+      color: #333;
+    }
+
+    header {
+      background-image: url("header-bg.png.png");
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .insta {
+      position: absolute;
+      top: 240px;
+      right: 20px;
+      z-index: 2;
+    }
+
+    .insta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      font-size: 26px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+.insta a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(96, 37, 159, 0.267);
+      z-index: 0;
+    }
+
+    header img {
+      height: 60px;
+      margin-bottom: 10px;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        background: #fff;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav a {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--secondary);
+      }
+
+      .insta {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+      }
+
+      .insta a {
+        color: white;
+        font-size: 1.5rem;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        padding: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+      }
+
+      .insta a:hover {
+        background: rgba(255,255,255,0.2);
+        transform: scale(1.1);
+      }
+
+      main {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      section {
+        background: #fff;
+        padding: 40px;
+        margin-bottom: 50px;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      section h2 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      ul, p, li {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 10px;
+      }
+
+      .download-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background: var(--secondary);
+        color: #000;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: transform 0.2s;
+      }
+
+      .download-button:hover {
+        transform: scale(1.05);
+        background: #e5c200;
+      }
+
+      .platform-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .platform-list i {
+        margin-right: 15px;
+        font-size: 1.4rem;
+        color: var(--primary);
+      }
+
+      .quiz-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .quiz-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+
+      .quiz-card h3 {
+        color: var(--primary);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input, textarea {
+        padding: 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      button {
+        background: var(--secondary);
+        border: none;
+        padding: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #e5c200;
+      }
+
+      footer {
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 60px;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Educar é Transformar" />
+    <h1>Educar é Transformar</h1>
+    <div class="insta">
+      <a href="https://www.instagram.com/educar_transformar?igsh=bzAzYXBpMHBhdnV6" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      title="Nos siga no Instagram">
+     <i class="bi bi-instagram"></i>
+   </a>
+    </div>  
+  </header>
+
+  <nav>
+    <a href="#curriculo">Currículo</a>
+    <a href="#linkedin">LinkedIn</a>
+    <a href="#plataformas">Plataformas</a>
+    <a href="#contato">Contato</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <main>
+    <section id="curriculo" class="reveal" style="background-image: url('https://source.unsplash.com/featured/?resume');">
+      <h2>Como montar um currículo profissional</h2>
+      <p>Montar um currículo bem estruturado é essencial para causar uma boa primeira impressão. Siga estas dicas:</p>
+      <ul>
+        <li>Inclua seus dados pessoais, objetivo, formação, experiências e habilidades.</li>
+        <li>Use uma linguagem clara e direta.</li>
+        <li>Revise para evitar erros de português.</li>
+      </ul>
+
+    </section>
+
+    <section id="linkedin" class="reveal" style="background-image: url('https://source.unsplash.com/featured/?linkedin');">
+      <h2>Como criar um perfil no LinkedIn e usá-lo de forma estratégica</h2>
+      <p>O LinkedIn é uma poderosa ferramenta para networking e busca de oportunidades. Para criar um bom perfil:</p>
+      <ul>
+        <li>Use uma foto profissional e um título claro.</li>
+        <li>Descreva suas experiências e conquistas.</li>
+        <li>Conecte-se com profissionais da sua área de interesse.</li>
+        <li>Compartilhe conteúdos relacionados à sua área para mostrar engajamento.</li>
+      </ul>
+    </section>
+
+    <section id="plataformas" class="reveal" style="background-image: url('https://source.unsplash.com/featured/?job,work');">
+      <h2>Plataformas com vagas de Jovem Aprendiz</h2>
+      <p>Confira os principais sites para buscar oportunidades como Jovem Aprendiz:</p>
+    
+      <ul style="list-style: none; padding: 0; margin-top: 30px;">
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="bi bi-briefcase-fill" style="font-size: 1.5rem; color: #5f259f; margin-right: 15px;"></i>
+          <div>
+            <strong>CIEE</strong><br />
+            <a class="download-button" href="https://www.ciee.org.br" target="_blank">Acessar plataforma</a>
+          </div>
+        </li>
+    
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="bi bi-person-badge-fill" style="font-size: 1.5rem; color: #5f259f; margin-right: 15px;"></i>
+          <div>
+            <strong>NUBE</strong><br />
+            <a class="download-button" href="https://www.nube.com.br" target="_blank">Acessar plataforma</a>
+          </div>
+        </li>
+    
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="bi bi-search" style="font-size: 1.5rem; color: #5f259f; margin-right: 15px;"></i>
+          <div>
+            <strong>Vagas.com</strong><br />
+            <a class="download-button" href="https://www.vagas.com.br" target="_blank">Acessar plataforma</a>
+          </div>
+        </li>
+    
+        <li style="display: flex; align-items: center;">
+          <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #5f259f; margin-right: 15px;"></i>
+          <div>
+            <strong>LinkedIn</strong><br />
+            <a class="download-button" href="https://www.linkedin.com/jobs" target="_blank">Acessar plataforma</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+
+    <section id="quiz" class="reveal" style="background-image: url('https://source.unsplash.com/featured/?quiz');">
+      <h2>Quiz: Teste seus conhecimentos</h2>
+      <p>Aqui estão alguns quizzes para você praticar o que aprendeu:</p>
+    
+      <div class="quiz-cards">
+        <div class="quiz-card">
+          <h3>Quiz 1: Montando um Currículo</h3>
+          <p>Aprenda a organizar um currículo profissional e atrativo.</p>
+          <a href="https://forms.gle/BnZvVgsQW51K3pRN9" target="_blank" class="download-button">Acessar Quiz</a>
+        </div>
+      
+        <div class="quiz-card">
+          <h3>Quiz 2: Entrevista</h3>
+          <p>Dicas e boas práticas para se sair bem em entrevistas.</p>
+          <a href="https://forms.gle/sA8esLToW6q2besQ9" target="_blank" class="download-button">Acessar Quiz</a>
+        </div>
+      
+        <div class="quiz-card">
+          <h3>Quiz 3: Comunicação e Postura</h3>
+          <p>Saiba como se comunicar com clareza e postura profissional.</p>
+          <a href="https://forms.gle/YjHbjCxgjgbdnD5v7" target="_blank" class="download-button">Acessar Quiz</a>
+        </div>
+      
+        <div class="quiz-card">
+          <h3>Quiz 4: Direitos e Deveres</h3>
+          <p>Teste seus conhecimentos sobre a lei do jovem aprendiz.</p>
+          <a href="https://forms.gle/STxFnajGMuN6x8G96" target="_blank" class="download-button">Acessar Quiz</a>
+        </div>
+      </div>
+  </section>
+  
+  <section id="contato" class="reveal">
+      <h2>Fale com a gente</h2>
+      <p>Tem dúvidas ou quer mais informações? Preencha o formulário abaixo ou envie um e-mail direto para nós:</p>
+      <form action="https://formspree.io/f/xqapvkky" method="POST" enctype="multipart/form-data">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h3>Educar é Transformar</h3>
+        <p>Transformando jovens em profissionais preparados para o mercado de trabalho.</p>
+      </div>
+  
+      <div class="footer-section links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="#curriculo">Currículo</a></li>
+          <li><a href="#linkedin">LinkedIn</a></li>
+          <li><a href="#plataformas">Plataformas</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section contact">
+        <h3>Contato</h3>
+        <p>Precisa de mais informações? Envie um e-mail ou preencha o formulário de contato.</p>
+        <p>Email: <a href="mailto:contato@educaretransformar.com">educar.transformarjovens@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Educar é Transformar. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <style>
+    footer {
+      background-color: #35016d;
+      color: white;
+      padding: 40px 20px;
+      font-size: 1rem;
+      text-align: center;
+    }
+  
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+  
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+  
+    .footer-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+  
+    .footer-section p,
+    .footer-section ul {
+      font-size: 1.1rem;
+    }
+  
+    .footer-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+  
+    .footer-section ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+  
+    .footer-section ul li a:hover {
+      color: var(--secondary);
+    }
+  
+    .footer-section .social-links a:hover {
+      color: var(--secondary);
+    }
+  
+    .footer-bottom {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+  
+    .footer-bottom p {
+      font-size: 0.9rem;
+    }
+  
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      for (const el of reveals) {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    // Formulário com feedback visual
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      form.innerHTML = `<p style="color: orange; font-size: 1.2rem;">Enviando sua mensagem...</p>`;
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => {
+          if (response.ok) {
+            form.innerHTML = `<p style="color: #4CAF50; font-size: 1.2rem;">Mensagem enviada com sucesso! Em breve entraremos em contato.</p>`;
+            form.reset();
+          } else {
+            form.innerHTML = `<p style="color: red; font-size: 1.2rem;">Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde.</p>`;
+          }
+        })
+        .catch(() => {
+          form.innerHTML = `<p style="color: red; font-size: 1.2rem;">Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde.</p>`;
+        });
+    });
+  </script>
+</body>
+</html>
